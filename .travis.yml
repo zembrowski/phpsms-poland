@@ -29,6 +29,6 @@ matrix:
 
 before_install:
   - travis_retry composer self-update
-  - composer require "composer require phpunit/phpunit:$PHPUNIT_VERSION" --no-update
+  - composer require "phpunit/phpunit:${PHPUNIT_VERSION}" --no-update
 
 install: composer update --no-interaction --prefer-source

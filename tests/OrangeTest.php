@@ -11,7 +11,7 @@ class OrangeTest extends \PHPUnit_Framework_TestCase
 
     public function __construct()
     {
-        $this->orange = new zembrowski\SMS\Orange();
+        $this->orange = new \zembrowski\SMS\Orange();
     }
 
     public function testURL()
