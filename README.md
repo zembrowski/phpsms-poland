@@ -37,7 +37,7 @@ require_once 'vendor/autoload.php';
 $login = 'login';
 $password = 'password';
 $number = '501234567';
-$text = 'It works :)';
+$text = 'It works! Thanks :)';
 try {
   $sms = new zembrowski\SMS\Orange();
   $sms->login($login, $password);
@@ -46,6 +46,8 @@ try {
   echo '[ERROR] ' . $e->getMessage();
 }
 ```
+
+See [examples.php](examples.php) for an advanced example.
 
 
 ## Change log
