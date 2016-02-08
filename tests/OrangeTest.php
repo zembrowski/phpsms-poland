@@ -2,7 +2,7 @@
 
 namespace zembrowski\SMS\Tests;
 
-class OrangeTest extends PHPUnit_Framework_TestCase
+class OrangeTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var orange

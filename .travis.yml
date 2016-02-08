@@ -1,4 +1,5 @@
 language: php
+
 php:
   - 5.2
   - 5.3
@@ -7,11 +8,29 @@ php:
   - 5.6
   - 7.0
   - hhvm
+  - nightly
+
+env:
+  - PHPUNIT_VERSION=5.2.*
 
 matrix:
   allow_failures:
     - php: 7.0
+    - php: nightly
+  include:
+    - php: 5.2
+      env: PHPUNIT_VERSION=3.7.0
+    - php: 5.3
+      env: PHPUNIT_VERSION=4.8.*
+    - php: 5.4
+      env: PHPUNIT_VERSION=4.8.*
+    - php: 5.5
+      env: PHPUNIT_VERSION=4.8.*
 
 before_script:
   - travis_retry composer self-update
-  - travis_retry composer update --no-interaction --prefer-source
+
+before_install:
+  - composer require "composer require phpunit/phpunit:${PHPUNIT_VERSION}" --no-update
+
+install: composer update --no-interaction --prefer-source
