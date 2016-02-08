@@ -21,11 +21,11 @@ checks:
 build:
     environment:
         php:
-            version: 5.6 
+            version: 5.6
     tests:
         override:
             -
-                command: 'phpunit --coverage-clover=cc'
+                command: 'phpunit --coverage-text --coverage-clover=coverage.clover'
                 coverage:
                     file: 'cc'
                     format: 'php-clover'
