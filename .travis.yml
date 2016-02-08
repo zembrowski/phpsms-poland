@@ -11,7 +11,7 @@ php:
   - nightly
 
 env:
-  - PHPUNIT_VERSION=5.2.*
+  - PHPUNIT_VERSION="5.2.*"
 
 matrix:
   allow_failures:
@@ -19,18 +19,16 @@ matrix:
     - php: nightly
   include:
     - php: 5.2
-      env: PHPUNIT_VERSION=3.7.0
+      env: PHPUNIT_VERSION="3.7.0"
     - php: 5.3
-      env: PHPUNIT_VERSION=4.8.*
+      env: PHPUNIT_VERSION="4.8.*"
     - php: 5.4
-      env: PHPUNIT_VERSION=4.8.*
+      env: PHPUNIT_VERSION="4.8.*"
     - php: 5.5
-      env: PHPUNIT_VERSION=4.8.*
-
-before_script:
-  - travis_retry composer self-update
+      env: PHPUNIT_VERSION="4.8.*"
 
 before_install:
-  - composer require "composer require phpunit/phpunit:${PHPUNIT_VERSION}" --no-update
+  - travis_retry composer self-update
+  - composer require "composer require phpunit/phpunit:$PHPUNIT_VERSION" --no-update
 
 install: composer update --no-interaction --prefer-source
