@@ -6,19 +6,34 @@
 
 Send SMS via Polish mobile carriers using Object-Orientated PHP.
 
+Currently only Orange Multibox is supported.
+
 
 ## Install
 
-Via Composer
+Via [Composer](https://getcomposer.org) 
 
 ``` bash
 $ composer require zembrowski/phpsms-poland
 ```
 
+or  
+
+just download [src/Orange.php](src/Orange.php), [Requests for PHP](http://requests.ryanmccue.info), [simple_html_dom](https://github.com/EmanueleMinotto/simple-html-dom) and require all needed classes like this:
+``` php
+require_once 'Requests.php';
+Requests::register_autoloader();
+require_once 'simple_html_dom.php';
+require_once 'Orange.php';
+```
+
 
 ## Usage
 
+With [Composer](https://getcomposer.org) 
 ``` php
+require_once 'vendor/autoload.php';
+
 $login = 'login';
 $password = 'password';
 $number = '501234567';
