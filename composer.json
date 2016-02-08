@@ -1,0 +1,23 @@
+{
+  "name": "zembrowski/phpsms-poland",
+  "description": "Send SMS via Polish mobile carriers using PHP.",
+  "keywords": [ "sms", "poland", "orange"],
+  "homepage": "https://github.com/zembrowski/phpsms-poland",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Krzysztof Tomasz Zembrowski",
+      "homepage": "http://krzysztof.zembrowski.com/"
+    }
+  ],
+  "require": {
+    "php": ">=5.2",
+    "rmccue/requests": "~1.6",
+    "emanueleminotto/simple-html-dom": "~1.5"
+},
+  "autoload": {
+    "psr-4": {
+      "zembrowski\\SMS\\": "src"
+    }
+  }
+}
