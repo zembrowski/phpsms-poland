@@ -25,7 +25,7 @@ class OrangeTest extends \PHPUnit_Framework_TestCase
      */
     public function testFree()
     {
-        $method = new ReflectionMethod('zembrowski\SMS\Orange', 'free');
+        $method = new \ReflectionMethod('zembrowski\SMS\Orange', 'free');
 
         $method->setAccessible(TRUE);
 
