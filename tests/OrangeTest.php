@@ -29,7 +29,7 @@ class OrangeTest extends \PHPUnit_Framework_TestCase
 
         $method->setAccessible(TRUE);
 
-        $this->assertFalse($method->invoke(new \zembrowski\SMS\Orange));
+        $this->assertFalse($method->invokeArgs(new \zembrowski\SMS\Orange(), array(null)));
     }
 
     // used when zembrowski\SMS\Orange::free public
