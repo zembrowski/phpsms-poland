@@ -36,15 +36,12 @@ class Orange
         $session = new \Requests_Session($this->url);
         $session->useragent = $this->user_agent;
         $this->session = $session;
-        $response = $this->session->get($this->login_request_uri);
 
         $html = new \simple_html_dom();
         $this->html = $html;
 
-        $this->dynSess = rand(0, 999999999999999999);
         // For now there is no crosscheck of the dynSess value with the hidden input value _dynSessConf of the login form, therefore the value can be generated randomly and one request fewer made
-        //$element = $this->find($response->body, 'div.login-box form input[name=_dynSessConf]', 0);
-        //$this->dynSess = $element->value;
+        $this->dynSess = rand(0, 999999999999999999);
     }
 
     /**
@@ -82,7 +79,7 @@ class Orange
         );
 
         $response = $this->session->post($this->login_request_uri . $this->login_post_query_string);
-        //echo $response->body;
+
         $this->token = $this->token($response->body);
 
         return array('check' => $this->check($response->body, 'div.box-error p'), 'free' => $this->free($response->body));
@@ -147,7 +144,6 @@ class Orange
         $response = $this->session->post($this->send_post_request_uri);
 
         // TO FIX: Not working yet as expected: "Too many redirects" error; cf. follow_redirects option above
-        //echo $response->body;
         return array('check' => $this->check($response->body, 'div.box-error p'), 'free' => $this->free($response->body));
     }
 
@@ -173,7 +169,7 @@ class Orange
      * Checks the remaining SMS left this month from the response body
      *
      * @param string $content - content to be searched through
-     * @return boolean/int - free SMS this month; false if no content; int if value present
+     * @return mixed - free SMS this month; false if no content; int if value present
      */
     private function free($content)
     {

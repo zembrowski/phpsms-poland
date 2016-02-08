@@ -1,5 +1,6 @@
 <?php
 
+// Place examples.php in the composer root directory or adjust the path to autoload.php
 require_once 'vendor/autoload.php';
 
 $login = 'login';

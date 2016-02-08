@@ -14,10 +14,21 @@
     "php": ">=5.2",
     "rmccue/requests": "~1.6",
     "emanueleminotto/simple-html-dom": "~1.5"
-},
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~5.2"
+  },
   "autoload": {
     "psr-4": {
-      "zembrowski\\SMS\\": "src"
+      "zembrowski\\SMS\\": "src/"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "zembrowski\\SMS\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit"
   }
 }
