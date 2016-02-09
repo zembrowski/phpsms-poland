@@ -18,6 +18,7 @@ matrix:
       env: PHPUNIT_VERSION="4.8.*"
     - php: 5.6
       env: PHPUNIT_VERSION="5.2.*"
+      script: ./scripts/phpunit-with-coveralls.sh
     - php: 7.0
       env: PHPUNIT_VERSION="5.2.*"
     - php: hhvm
@@ -30,10 +31,3 @@ before_install:
   - composer require "phpunit/phpunit:${PHPUNIT_VERSION}" --no-update
 
 install: composer update --no-interaction --prefer-source
-
-script:
-  - mkdir -p build/logs
-  - phpunit --coverage-clover=build/logs/clover.xml
-
-after_script:
-  - php vendor/bin/coveralls -v
