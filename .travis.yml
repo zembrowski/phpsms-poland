@@ -5,9 +5,11 @@ matrix:
     - php: 5.2
     - php: 7.0
     - php: nightly
+  fast_finish: true
   include:
     - php: 5.2
       env: PHPUNIT_VERSION="3.7.0"
+      before_install: ./scripts/travis-php52.sh
     - php: 5.3
       env: PHPUNIT_VERSION="4.8.*"
     - php: 5.4
@@ -28,3 +30,10 @@ before_install:
   - composer require "phpunit/phpunit:${PHPUNIT_VERSION}" --no-update
 
 install: composer update --no-interaction --prefer-source
+
+script:
+  - mkdir -p build/logs
+  - phpunit --coverage-clover=build/logs/clover.xml
+
+after_script:
+  - php vendor/bin/coveralls -v
