@@ -9,11 +9,11 @@ matrix:
       env: PHPUNIT_VERSION="5.7.*"
       script: ./scripts/phpunit-with-coveralls.sh
     - php: 7.0
-      env: PHPUNIT_VERSION="6.1.*"
+      env: PHPUNIT_VERSION="5.7.*"
     - php: hhvm
-      env: PHPUNIT_VERSION="6.1.*"
+      env: PHPUNIT_VERSION="5.7.*"
     - php: nightly
-      env: PHPUNIT_VERSION="6.1.*"
+      env: PHPUNIT_VERSION="5.7.*"
 
 before_install:
   - composer self-update

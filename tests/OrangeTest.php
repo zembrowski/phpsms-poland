@@ -16,7 +16,7 @@ class OrangeTest extends \PHPUnit_Framework_TestCase
 
     public function testURL()
     {
-        $this->assertEquals('https://www.orange.pl/', $this->orange->url);
+        $this->assertEquals('https://www.orange.pl', $this->orange->url);
     }
 
     // used when zembrowski\SMS\Orange::free private
