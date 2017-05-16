@@ -41,10 +41,8 @@ class Orange
         $html = new \simple_html_dom();
         $this->html = $html;
 
-        // For now there is no crosscheck of the dynSess value with the hidden input value _dynSessConf of the login form, therefore the value can be generated randomly
-        $this->dynSess = rand(0, 9999999999999999999);
-        //$element = $this->find($response->body, 'div.login-box form input[name=_dynSessConf]', 0);
-        //$this->dynSess = $element->value;
+        $random = rand(1000000000, 2147483647);
+        $this->dynSess = $random . $random;
     }
 
     /**
