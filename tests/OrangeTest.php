@@ -1,6 +1,8 @@
 <?php
 
-namespace zembrowski\SMS\Tests;
+/**
+ * @coversDefaultClass \zembrowski\SMS\Orange
+ */
 
 class OrangeTest extends \PHPUnit_Framework_TestCase
 {
@@ -14,14 +16,16 @@ class OrangeTest extends \PHPUnit_Framework_TestCase
         $this->orange = new \zembrowski\SMS\Orange();
     }
 
+    /**
+     * @coversNothing
+     */
     public function testURL()
     {
         $this->assertEquals('https://www.orange.pl', $this->orange->url);
     }
 
-    // used when zembrowski\SMS\Orange::free private
     /**
-     * @covers Orange::free
+     * @covers ::free
      */
     public function testFree()
     {
@@ -32,13 +36,4 @@ class OrangeTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($method->invokeArgs(new \zembrowski\SMS\Orange(), array(null)));
     }
 
-    // used when zembrowski\SMS\Orange::free public
-    /*
-    public function testFree()
-    {
-        $orange = new zembrowski\SMS\Orange();
-
-        $this->assertFalse($this->orange->free(null));
-    }
-    */
 }
