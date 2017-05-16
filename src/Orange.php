@@ -14,7 +14,6 @@ class Orange
     private $login_post_query_string = '?_DARGS=/ocp/gear/infoportal/portlets/login/login-box.jsp'; // login form POST query string
     private $send_request_uri = '/portal/map/map/message_box?mbox_edit=new&mbox_view=newsms'; // request uri of form for sending new messages
     private $send_post_request_uri = '/portal/map/map/message_box?_DARGS=/gear/mapmessagebox/smsform.jsp'; // action target for POST request of the sending new messages form
-    private $messages_request_uri = '/portal/map/map/message_box?mbox_view=sentmessageslist'; // request uri of the sent messages list
     public $max_length = '640'; // max. length of one SMS message according to the sending new messages form
 
     /**
@@ -36,7 +35,7 @@ class Orange
         $session = new \Requests_Session($this->url);
         $session->useragent = $this->user_agent;
         $this->session = $session;
-        $response = $this->session->get($this->login_request_uri);
+        $this->session->get($this->login_request_uri);
 
         $html = new \simple_html_dom();
         $this->html = $html;
@@ -171,7 +170,7 @@ class Orange
      * Checks the remaining SMS left this month from the response body
      *
      * @param string $content - content to be searched through
-     * @return boolean/int/string - free SMS this month; false if no content; int if int value present; other cases string
+     * @return boolean|int|string - free SMS this month; false if no content; int if int value present; other cases string
      */
     private function free($content)
     {
