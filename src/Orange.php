@@ -17,18 +17,31 @@ class Orange
     public $max_length = '640'; // max. length of one SMS message according to the sending new messages form
 
     /**
-     * @var session
-     * @var html
-     * @var dynSess
-     * @var token
+     * Session placeholder during the whole execution
+     * @var Requests_Session
      */
     private $session;
+
+    /**
+     * Initialized DOM for response analyzing
+     * @var simple_html_dom
+     */
     private $html;
+
+    /**
+     * Session data variable (not being cross-checked yet)
+     * @var string
+     */
     private $dynSess;
+
+    /**
+     * Form submission token placeholder
+     * @var string
+     */
     private $token;
 
     /**
-     * Instantiates the Requests handler with Session support.
+     * Instantiates the Requests handler with session support.
      */
     public function __construct()
     {
