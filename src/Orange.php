@@ -18,13 +18,13 @@ class Orange
 
     /**
      * Session placeholder during the whole execution
-     * @var Requests_Session
+     * @var \Requests_Session
      */
     private $session;
 
     /**
      * Initialized DOM for response analyzing
-     * @var simple_html_dom
+     * @var \simple_html_dom
      */
     private $html;
 
