@@ -41,12 +41,12 @@ require_once 'vendor/autoload.php';
 
 $login = 'login';
 $password = 'password';
-$number = '501234567';
+$recipient = '501234567';
 $text = 'It works! Thanks :)';
 try {
   $sms = new zembrowski\SMS\Orange();
   $sms->login($login, $password);
-  $sms->send($number, $text);
+  $sms->send($recipient, $text);
 } catch (Exception $e) {
   echo '[ERROR] ' . $e->getMessage();
 }

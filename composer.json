@@ -11,12 +11,12 @@
     }
   ],
   "require": {
-    "php": ">=5.2",
-    "rmccue/requests": "~1.6",
+    "php": ">=5.6",
+    "rmccue/requests": "~1.7",
     "emanueleminotto/simple-html-dom": "~1.5"
   },
   "require-dev": {
-    "phpunit/phpunit": "~5.2"
+    "phpunit/phpunit": "~5.7"
   },
   "autoload": {
     "psr-4": {

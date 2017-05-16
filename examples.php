@@ -5,7 +5,7 @@ require_once 'vendor/autoload.php';
 
 $login = 'login';
 $password = 'password';
-$number = '501234567';
+$recipient = '501234567';
 $text = 'It works! Thanks :)';
 
 // Simple
@@ -13,7 +13,7 @@ $text = 'It works! Thanks :)';
 try {
     $sms = new zembrowski\SMS\Orange();
     $sms->login($login, $password);
-    $sms->send($number, $text);
+    $sms->send($recipient, $text);
 } catch (Exception $e) {
     echo '[ERROR] ' . $e->getMessage();
 }
@@ -21,23 +21,48 @@ try {
 
 // Advanced
 try {
+
     $sms = new zembrowski\SMS\Orange();
     $login = $sms->login($login, $password);
+
     if ($login['check']) {
-        if ($login['free'] > 0) {
-        $send = $sms->send($number, $text);
-            if ($send['check']) {
-                echo "SMS was successfully sent.";
-                if (is_int($send['free'])) echo ' This month ' . $send['free'] . ' free SMS left.';
-                else if (empty($send['free'])) echo ' This month ' . $sms->get_free() . ' free SMS left.';
-                else 'Unknown how many free SMS left this month.';
-            } else {
-                echo "SMS was not sent.";
-            }
+
+        if ($login['free'] <= 0 && $login['free'] !== false) {
+
+            echo 'You don\'t have any free SMS left this month.';
+
         } else {
-            echo 'You don\'t have any free SMS left.';
+
+            $send = $sms->send($recipient, $text);
+
+            if ($send['status_code'] == 200) {
+
+                if ($send['check'] && $login['free'] > $send['free'] && is_int($send['free'])) {
+
+                    echo 'SMS was successfully sent. This month ' . $send['free'] . ' free SMS left.';
+
+                } elseif ($login['free'] == $send['free']) {
+
+                    echo 'Count of free SMS has not changed. Was ' . $login['free'] . ' and is ' . $send['free'] . ' . SMS was most probably not sent.';
+
+                } else {
+
+                    echo 'SMS was submitted, but it could not be determined whether it was sucessfully sent/delivered to recipient.';
+
+                }
+
+            } else {
+
+                echo 'It could be not determined whether the SMS was sent, as no successful status code was returned.';
+
+            }
+
         }
+
     }
+
 } catch (Exception $e) {
+
     echo '[ERROR] ' . $e->getMessage();
+
 }
