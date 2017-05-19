@@ -355,16 +355,20 @@ class Orange
     private function checkErrors($content, $selector, $function = null)
     {
         $elements = $this->find($content, $selector);
+        $message = null;
 
         if (count($elements) > 0) {
 
             foreach ($elements as $key => $item) {
 
                 $details = (!empty($function)) ? 'Function ' . $function . ' returned: ' : null;
-
-                throw new \Exception($details . trim($item->plaintext));
+                $message .= $details . trim($item->plaintext) . '; ';
 
             }
+
+            throw new \Exception($message);
+
+            $result = true;
 
         } else {
 
@@ -391,7 +395,7 @@ class Orange
     /**
      * Checks value for the remaining() and getRemaing() functions
      *
-     * @param string $value - input value
+     * @param string $elements - input data
      * @return array - information about the retrieved information
      *         boolean 'found' - false if no valuable content (default: false)
      *         int 'remaining' - remaining amount of SMS (default: 0)
