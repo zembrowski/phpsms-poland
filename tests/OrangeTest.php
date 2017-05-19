@@ -25,11 +25,11 @@ class OrangeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers ::free
+     * @covers ::remaining
      */
-    public function testFree()
+    public function testRemaining()
     {
-        $method = new \ReflectionMethod('\zembrowski\SMS\Orange', 'free');
+        $method = new \ReflectionMethod('\zembrowski\SMS\Orange', 'remaining');
 
         $method->setAccessible(TRUE);
 
