@@ -1,7 +1,7 @@
 # phpsms-poland
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
-[![Software License][ico-license]](LICENSE.md)
+[![Software License][ico-license]](LICENSE)
 [![Total Downloads][ico-downloads]][link-downloads]
 [![Build Status][ico-travis]][link-travis]
 [![Quality Score][ico-scrutinizer]][link-scrutinizer]
@@ -52,7 +52,7 @@ try {
 }
 ```
 
-See [examples.php](examples.php) for an advanced example.
+See [examples](examples) folder for advanced function usage.
 
 
 ## Change log
