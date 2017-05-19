@@ -25,15 +25,26 @@ class OrangeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @covers ::checkRemaining
+     */
+    public function testCheckRemaining()
+    {
+        $method = new \ReflectionMethod('\zembrowski\SMS\Orange', 'checkRemaining');
+        $method->setAccessible(TRUE);
+
+        $this->assertArrayHasKey('found', $method->invokeArgs(new \zembrowski\SMS\Orange(), array(null)));
+    }
+
+    /**
      * @covers ::remaining
      */
-    public function testRemaining()
+    /*public function testRemaining()
     {
         $method = new \ReflectionMethod('\zembrowski\SMS\Orange', 'remaining');
 
         $method->setAccessible(TRUE);
 
         $this->assertFalse($method->invokeArgs(new \zembrowski\SMS\Orange(), array(null)));
-    }
+    }*/
 
 }
