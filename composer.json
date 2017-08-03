@@ -16,7 +16,7 @@
     "emanueleminotto/simple-html-dom": "~1.5"
   },
   "require-dev": {
-    "phpunit/phpunit": "~6",
+    "phpunit/phpunit": "~5.7|~6",
     "satooshi/php-coveralls": "~1.0"
   },
   "autoload": {
